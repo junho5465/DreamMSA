@@ -1,25 +1,17 @@
+#spring.devtools, freemarker, thymleaf, resources, eureka 외부화 성공
 server:
   port: 8006
 
 spring:
   application:
     name: status-service
-  devtools:
-     livereload:
-        enabled: true
-     restart:
-        enabled: true
-  freemarker:
-     cache: false
-  thymeleaf:
-     cache: false
-  datasource:
+  config:              # gradle에 config 추가.
+   import: optional:configserver:http://localhost:8888  # config 서버 위치
+  datasource: #datasource 부터 mybatis까지 외부화 실패
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.1.51:3306/dream?serverTimezone=UTC&characterEncoding=UTF-8
     username: dream
     password: 1234
-  resources:
-    static-locations: classpath:/resources/static/**
   security:
     oauth2:
      resourceserver:
@@ -34,15 +26,28 @@ keycloak:
   auth-server-url: http://192.168.1.54:8080/auth
   credentials:
     secret: WEcACPUTWPfuhPrEz3bBaHcl7OLLmYX1
-    
+   
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
 
-eureka:
-  instance:
-    instance-id: status-microservice-instance
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+# 외부화 성공
+#spring: 
+#  devtools:
+#     livereload:
+#        enabled: true
+#     restart:
+#        enabled: true
+#  freemarker:
+#     cache: false
+#  thymeleaf:
+#     cache: false
+#  resources:
+#    static-locations: classpath:/resources/static/**
+#eureka:
+#  instance:
+#    instance-id: status-microservice-instance
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka

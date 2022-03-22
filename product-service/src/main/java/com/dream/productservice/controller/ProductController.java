@@ -18,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 public class ProductController {	
 	private final ProductService productService;
 	
-	@RolesAllowed({ "USER" })
 	@GetMapping("/list")
 	public String dream(Model model) throws Exception {
 		List<ProductDto> product = productService.getProductList();

@@ -1,4 +1,4 @@
-
+# eureka, devtools, datasource, myBatis 외부화 완료
 server:
   port: 8002
 
@@ -6,17 +6,9 @@ server:
 spring:
   application:
     name: manage-service
-  devtools:
-     livereload:
-        enabled: true
-     restart:
-        enabled: true
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.51:3306/dream?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
-    username: dream
-    password: 1234
-  security:
+  config:
+   import: optional:configserver:http://localhost:8888
+  security: # security부터 keycloak 까지는 외부화 실패
     oauth2:
      resourceserver:
         jwt:
@@ -31,15 +23,6 @@ keycloak:
   credentials:
     secret: WEcACPUTWPfuhPrEz3bBaHcl7OLLmYX1
 
-mybatis:
-#  configuration:
-#    multiple-result-sets-enabled: false
-#    map-underscore-to-camel-case: true
-#    call-setters-on-nulls: true
-#    jdbc-type-for-null: varchar
-#    default-fetch-size: 500
-  mapper-locations: /mapper/**/*.xml
-  type-aliases-package: com.dream.manage.dto
 
 
 #logging:
@@ -51,13 +34,28 @@ mybatis:
 ##    com.project.study : error
 ##    com.project.study.controller : debug
     
-eureka:
-  instance:
-    instance-id: manage-microservice-instance
+#외부화 성공 
+#eureka:
+#  instance:
+#    instance-id: manage-microservice-instance
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+     
+#spring: 
+#  devtools:
+#     livereload:
+#        enabled: true
+#     restart:
+#        enabled: true 
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.1.51:3306/dream?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+#    username: dream
+#    password: 1234  
 
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-         
+#mybatis:
+#  mapper-locations: /mapper/**/*.xml
+#  type-aliases-package: com.dream.manage.dto

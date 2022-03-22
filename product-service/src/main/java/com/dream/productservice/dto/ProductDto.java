@@ -1,7 +1,5 @@
 package com.dream.productservice.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto {
-	private int proNo;	//»óÇ° ¹øÈ£
-	private String proName;	//»óÇ° ÀÌ¸§
-	private double proLimit;	// ´ëÃâ ÇÑµµ
-	private String description;	// »óÇ° ¼³¸í
-	private int term;	//´ëÃâ ±â°£
+	private int proNo;	//ï¿½ï¿½Ç° ï¿½ï¿½È£
+	private String proName;	//ï¿½ï¿½Ç° ï¿½Ì¸ï¿½
+	private double proLimit;	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ñµï¿½
+	private String description;	// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+	private int term;	//ï¿½ï¿½ï¿½ï¿½ ï¿½â°£
 }

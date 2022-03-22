@@ -20,8 +20,7 @@ public class ListController {
 	@GetMapping("/all")
 	public String selectAll(Model model) {
 		model.addAttribute("list", service.selectAll());
-		//@RequestHeader("first-request") String header ,
-		//System.out.print("test test : "+header);
+
 		return "list";
 	}
 }
