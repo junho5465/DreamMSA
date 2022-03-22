@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Parisienne&amp;display=swap"
+	rel="stylesheet">
+<link href="css/startup.css" rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<script>
+		function back() {
+			location.replace("http://localhost:8000/menu/list");
+		}
+	</script>
+	<div class="root">
+		<div class="form1">
+			<div class="header">
+				<button onclick="back()" type="button"
+					class="btn btn-outline-secondary btn-sm" style="float: right;">뒤로가기</button>
+				<br>
+				<br>
+				<div class="brand">Dream Security</div>
+				<div class="message">금융 상품 등록 페이지 입니다.</div>
+			</div>
+			<form action="./register" method="post" name="manage">
+				<div class="form">
+					<div class="first">
+						<label for="email">금융상품이름</label> <input type="text"
+							name="proName" placeholder="금융상품이름"> <label for="email">대출한도</label>
+						<input type="Number" name="proLimit" placeholder="대출한도"> <label
+							for="email">상품설명</label> <input type="text" name="description"
+							placeholder="상품설명"> <label for="email">만기기간</label> <input
+							type="Number" name="term">
+					</div>
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" /> <input type="submit" name="등록하기">
+
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="js/startup.js"></script>
+</body>
+</html>
