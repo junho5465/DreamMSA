@@ -26,28 +26,28 @@
 			<div class="header">
 				<button onclick="back()" type="button"
 					class="btn btn-outline-secondary btn-sm" style="float: right;">뒤로가기</button>
-				<br>
-				<br>
+				<br> <br>
 				<div class="brand">Dream Security</div>
 				<div class="message">금융 상품 등록 페이지 입니다.</div>
 			</div>
-			<form action="./register" method="post" name="manage">
+			<form id="register()" method="post">
 				<div class="form">
 					<div class="first">
-						<label for="email">금융상품이름</label> <input type="text"
-							name="proName" placeholder="금융상품이름"> <label for="email">대출한도</label>
-						<input type="Number" name="proLimit" placeholder="대출한도"> <label
-							for="email">상품설명</label> <input type="text" name="description"
-							placeholder="상품설명"> <label for="email">만기기간</label> <input
-							type="Number" name="term">
+						<label for="email">금융상품이름</label> <input type="text" id="proName"
+							name="proName" placeholder="금융상품이름"> <label for="email">대출한도(만원)</label>
+						<input type="Number" id="proLimit" name="proLimit"
+							placeholder="대출한도"> <label for="email">상품설명</label> <input
+							type="text" id="description" name="description"
+							placeholder="상품설명"> <label for="email">만기기간(년)</label> <input
+							type="Number" id="term" name="term">
 					</div>
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" /> <input type="submit" name="등록하기">
+					<button type="button" onclick="register()">등록하기</button>
 
 				</div>
 			</form>
 		</div>
 	</div>
+
 	<script src="js/startup.js"></script>
 </body>
 </html>
